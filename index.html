@@ -28,6 +28,7 @@
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'float-reverse': 'float 5s ease-in-out infinite reverse',
+                        'bounce': 'bounce 2s infinite',
                     },
                     keyframes: {
                         float: {
@@ -70,13 +71,27 @@
         .animate-fade-in {
             animation: fadeIn 1s ease-out forwards;
         }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
     </style>
 <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
@@ -111,7 +126,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen relative flex flex-col justify-center items-center overflow-hidden pt-20">
+    <section id="hero" class="min-h-screen relative flex flex-col justify-center items-center overflow-hidden pt-20">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-900/20 blur-[120px] rounded-full pointer-events-none"></div>
         
         <div class="relative z-10 w-full container mx-auto px-4 flex flex-col items-center select-none">
@@ -159,7 +174,7 @@
                     Pensar antes<br/> de <span class="text-outline font-serif italic">comunicar</span>, <br/>
                 </h2>
                 <p class="text-gray-400 text-lg max-w-md leading-relaxed">
-                    Antes de crear contenido o lanzar un mensaje, me gusta entender la marca, el objetivo y a quién va dirigido. Trabajo el marketing digital desde la estrategia.
+                    Antes de crear contenido o lanzar un mensaje, me gusta entender la marca, el objetivo y a quién va dirigido. Trabajo el marketing digital desde la estrategia, combinando análisis, creatividad y planificación para que cada acción tenga sentido.
                 </p>
                 <div class="mt-12">
                     <button id="open-cv" class="bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-wider hover:bg-accent transition-all duration-300 flex items-center gap-2 group">
@@ -183,7 +198,8 @@
                     </div>
                 </div>
                 <div class="absolute w-64 h-96 bg-black rounded-3xl shadow-2xl transform rotate-6 translate-x-[60px] -translate-y-[20px] transition-all duration-500 hover:rotate-0 hover:z-30 overflow-hidden border border-white/20">
-                    <img src="1.jpg" alt="Decorativa" class="absolute inset-0 w-full h-full object-cover opacity-60" />
+                    <!-- Foto 1.jpg local -->
+                    <img src="1.jpg" alt="Creatividad" class="absolute inset-0 w-full h-full object-cover opacity-60" />
                     <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
                         <span class="text-xs font-bold uppercase text-white">Impacto</span>
                         <h3 class="text-2xl font-display font-bold text-white mb-2">Creatividad</h3>
@@ -201,13 +217,13 @@
                     <span class="text-gray-500 text-sm uppercase tracking-widest font-bold block mb-2">Casos de Éxito</span>
                     <h2 class="text-4xl md:text-5xl font-display font-bold text-white">Proyectos</h2>
                 </div>
-                <div class="absolute top-0 right-0 opacity-5 pointer-events-none select-none">
+                <div class="absolute top-0 right-0 opacity-5 pointer-events-none select-none translate-x-1/4">
                     <h2 class="text-[20vw] font-black font-display text-white leading-none">Éxito</h2>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Proyectos Dinámicos -->
+                <!-- Zenith -->
                 <div class="group relative rounded-3xl overflow-hidden md:row-span-2 bg-[#2a2a2a] aspect-[3/5] md:aspect-auto">
                     <div class="absolute inset-0 bg-white mix-blend-overlay opacity-0 group-hover:opacity-40 transition-opacity duration-500 z-10"></div>
                     <img src="https://github.com/pablomarti14/portfoliofotos/blob/main/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(1).png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" alt="Zenith">
@@ -217,6 +233,7 @@
                     </div>
                 </div>
 
+                <!-- LexNet -->
                 <div class="group relative rounded-3xl overflow-hidden md:col-span-2 bg-[#2a2a2a] aspect-video">
                     <div class="absolute inset-0 bg-white mix-blend-overlay opacity-0 group-hover:opacity-40 transition-opacity duration-500 z-10"></div>
                     <img src="https://github.com/pablomarti14/portfoliofotos/blob/main/Lexnet.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" alt="LexNet">
@@ -226,6 +243,7 @@
                     </div>
                 </div>
 
+                <!-- L'Etrusco -->
                 <div class="group relative rounded-3xl overflow-hidden bg-[#2a2a2a] aspect-square">
                     <div class="absolute inset-0 bg-white mix-blend-overlay opacity-0 group-hover:opacity-40 transition-opacity duration-500 z-10"></div>
                     <img src="https://github.com/pablomarti14/portfoliofotos/blob/main/L'Etrusco.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" alt="L'Etrusco">
@@ -235,6 +253,7 @@
                     </div>
                 </div>
 
+                <!-- Simetría -->
                 <div class="group relative rounded-3xl overflow-hidden bg-[#2a2a2a] aspect-square">
                     <div class="absolute inset-0 bg-white mix-blend-overlay opacity-0 group-hover:opacity-40 transition-opacity duration-500 z-10"></div>
                     <img src="https://github.com/pablomarti14/portfoliofotos/blob/main/Simetr%C3%ADa.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" alt="Simetría">
@@ -277,18 +296,23 @@
         </div>
     </footer>
 
-    <!-- Modal CV -->
+    <!-- Modal CV (Corregido según snippet del usuario) -->
     <div id="cv-modal" class="fixed inset-0 bg-black/80 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm">
         <div class="bg-white w-full max-w-5xl h-[90vh] rounded-xl shadow-2xl overflow-hidden flex flex-col relative" onclick="event.stopPropagation()">
+            
+            <!-- Header Toolbar -->
             <div class="bg-gray-900 text-white p-4 flex justify-between items-center shrink-0">
                 <span class="font-bold tracking-wider">CV - Pablo Martí León</span>
                 <button id="close-cv" class="hover:text-red-400 transition-colors">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
             </div>
-            <div class="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8 no-scrollbar">
-                <!-- Contenido del CV -->
-                <div class="max-w-[800px] mx-auto bg-white shadow-lg min-h-[1100px] p-8 md:p-12 text-black">
+
+            <!-- CV Canvas -->
+            <div class="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8 custom-scrollbar">
+                <div class="max-w-[800px] mx-auto bg-white shadow-lg min-h-[1100px] p-8 md:p-12 text-black" id="cv-content">
+                    
+                    <!-- CV Header -->
                     <div class="flex flex-col md:flex-row gap-8 mb-12 border-b-2 border-black pb-8">
                         <div class="flex-1">
                             <h1 class="text-5xl md:text-6xl font-serif mb-2 leading-none">PABLO<br/><span class="font-sans font-bold">MARTÍ LEÓN</span></h1>
@@ -303,29 +327,106 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid md:grid-cols-12 gap-8 text-sm">
+
+                    <div class="grid md:grid-cols-12 gap-8">
+                        <!-- Sidebar (Left Column) -->
                         <div class="md:col-span-4 space-y-10 border-r-0 md:border-r-2 border-black/10 pr-0 md:pr-4">
-                            <section class="space-y-4">
-                                <div class="flex gap-3"><strong>📍 Dirección:</strong> <span>Castellón, España</span></div>
-                                <div class="flex gap-3"><strong>📞 Teléfono:</strong> <span>601369529</span></div>
-                                <div class="flex gap-3"><strong>✉️ Mail:</strong> <span class="break-all">pablomartileon@gmail.com</span></div>
-                            </section>
+                            
                             <section>
-                                <h3 class="font-black text-lg uppercase mb-2 border-b border-gray-200">Educación</h3>
-                                <p><strong>Mkt y Publicidad</strong>, IES Caminás</p>
+                                <div class="space-y-5 text-sm">
+                                    <div class="flex gap-3 items-start">
+                                        <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center shrink-0 mt-1">
+                                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                                        </div>
+                                        <div>
+                                            <strong class="block text-base mb-1">Dirección:</strong>
+                                            <span class="text-gray-600 leading-tight block">Calle Alicante 9 4B,<br/>Castellón, España.</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-3 items-start">
+                                        <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center shrink-0 mt-1">
+                                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                        </div>
+                                        <div>
+                                            <strong className="block text-base mb-1">Teléfono:</strong>
+                                            <span class="text-gray-600">601369529</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-3 items-start">
+                                        <div class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center shrink-0 mt-1">
+                                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                                        </div>
+                                        <div>
+                                            <strong class="block text-base mb-1">Mail:</strong>
+                                            <span class="text-gray-600 break-all leading-tight">pablomartileon@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section>
+                                <h3 class="font-black text-xl tracking-widest uppercase mb-4 border-b border-gray-200 pb-2">Idiomas</h3>
+                                <ul class="space-y-3 text-sm text-gray-700">
+                                    <li><strong class="text-black">Castellano</strong>, Nativo</li>
+                                    <li><strong class="text-black">Valenciano</strong>, Nativo</li>
+                                    <li><strong class="text-black">Inglés</strong>, nivel medio</li>
+                                </ul>
+                            </section>
+
+                            <section>
+                                <h3 class="font-black text-xl tracking-widest uppercase mb-4 border-b border-gray-200 pb-2">Educación</h3>
+                                <div class="space-y-6">
+                                    <div>
+                                        <p class="font-bold text-sm uppercase text-black">Grado Superior</p>
+                                        <p class="text-xs text-gray-600 mt-1 leading-relaxed">Marketing y publicidad, IES El Caminás. Cursando</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm uppercase text-black">Grado Medio</p>
+                                        <p class="text-xs text-gray-600 mt-1 leading-relaxed">Montaje de estructuras e instalación de sistemas aeronáuticos, IES Vall D’alba. 2023</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm uppercase text-black">Bachillerato</p>
+                                        <p class="text-xs text-gray-600 mt-1 leading-relaxed">Ciencias Sociales, IES La Plana. 2021</p>
+                                    </div>
+                                </div>
                             </section>
                         </div>
+
+                        <!-- Main Content (Right Column) -->
                         <div class="md:col-span-8 space-y-10">
                             <section>
-                                <h3 class="font-black text-xl uppercase mb-4 border-b-2 border-black pb-2">Perfil</h3>
-                                <p class="text-justify">Trabajador responsable y comprometido enfocado en alcanzar objetivos de marketing digital y estrategia.</p>
+                                <h3 class="font-black text-xl tracking-widest uppercase mb-4 border-b-2 border-black pb-2 inline-block">Perfil</h3>
+                                <p class="text-gray-700 leading-relaxed text-sm md:text-base text-justify">
+                                    Trabajador responsable y comprometido, con una sólida ética laboral y capacidad para adaptarse a diferentes entornos y desafíos. Destaco por mi puntualidad, dedicación y habilidad para trabajar tanto de manera autónoma como en equipo, siempre enfocado en alcanzar los objetivos establecidos.
+                                </p>
                             </section>
+
                             <section>
-                                <h3 class="font-black text-xl uppercase mb-6 border-b-2 border-black pb-2">Experiencia</h3>
-                                <div class="space-y-4">
-                                    <div><strong>Repartidor</strong> - Telepizza (2024)</div>
-                                    <div><strong>Camarero</strong> - Grupo Peñalen (2023)</div>
-                                    <div><strong>Mecánico Aviones</strong> - Brok-Air (2023)</div>
+                                <h3 class="font-black text-xl tracking-widest uppercase mb-6 border-b-2 border-black pb-2 inline-block">Experiencia</h3>
+                                <div class="space-y-8">
+                                    <div class="group">
+                                        <h4 class="font-black uppercase text-lg text-black">Repartidor</h4>
+                                        <p class="text-gray-700 font-medium mb-1">Telepizza, repartidor en moto.</p>
+                                        <span class="inline-block bg-black text-white text-xs font-bold px-2 py-1 rounded">2024 - Actualidad</span>
+                                    </div>
+
+                                    <div class="group">
+                                        <h4 class="font-black uppercase text-lg text-black">Camarero</h4>
+                                        <p class="text-gray-700 font-medium mb-1">Grupo Peñalen Vila-Real, camarero en bodas, comuniones y eventos.</p>
+                                        <span class="inline-block bg-black text-white text-xs font-bold px-2 py-1 rounded">2023 - Actualidad</span>
+                                    </div>
+
+                                    <div class="group">
+                                        <h4 class="font-black uppercase text-lg text-black">Mecánico de Aviones</h4>
+                                        <p class="text-gray-700 font-medium mb-1">Brok-Air Castellón, mecánico de aviones.</p>
+                                        <span class="inline-block bg-gray-200 text-black text-xs font-bold px-2 py-1 rounded">2023</span>
+                                    </div>
+
+                                    <div class="group">
+                                        <h4 class="font-black uppercase text-lg text-black">Socorrista</h4>
+                                        <p class="text-gray-700 font-medium mb-1">InturEsport S.L, socorrista en playas de Benicasim y Castellón.</p>
+                                        <span class="inline-block bg-gray-200 text-black text-xs font-bold px-2 py-1 rounded">Veranos 2019/2020/2021</span>
+                                    </div>
                                 </div>
                             </section>
                         </div>
@@ -350,7 +451,9 @@
             const target = e.target;
             const isClickable = window.getComputedStyle(target).cursor === 'pointer' || 
                               target.tagName === 'BUTTON' || 
-                              target.tagName === 'A';
+                              target.tagName === 'A' ||
+                              target.closest('a') ||
+                              target.closest('button');
             
             if (isClickable) {
                 cursor.classList.add('w-20', 'h-20', 'opacity-30');
@@ -381,7 +484,7 @@
         openBtn.addEventListener('click', () => {
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            document.body.style.overflow = 'hidden'; // Evitar scroll al abrir modal
+            document.body.style.overflow = 'hidden';
         });
 
         const closeModal = () => {
@@ -392,6 +495,20 @@
 
         closeBtn.addEventListener('click', closeModal);
         modal.addEventListener('click', closeModal);
+
+        // 4. Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 
 </body>
