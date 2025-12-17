@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pablo Martí | Marketing Estratégico & Growth</title>
+    
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        background: '#0a0a0a',
+                        accent: '#ccfd50',
+                        secondary: '#6d28d9',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-reverse': 'float 5s ease-in-out infinite reverse',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(var(--tw-rotate, 0))' },
+                            '50%': { transform: 'translateY(-20px) rotate(var(--tw-rotate, 0))' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+            color: transparent;
+        }
+
+        .mask-image-gradient {
+            mask-image: linear-gradient(to top, black 20%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to top, black 20%, transparent 100%);
+        }
+
+        #custom-cursor {
+            transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+        }
+
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+
+        /* Animación fadeIn personalizada */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+<body class="bg-background text-white antialiased selection:bg-accent selection:text-black overflow-x-hidden">
+
+    <!-- Círculo Seguidor del Cursor -->
+    <div id="custom-cursor" class="fixed pointer-events-none z-[100] hidden md:block mix-blend-difference rounded-full bg-white w-4 h-4 opacity-100 -translate-x-1/2 -translate-y-1/2 left-0 top-0"></div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-10 bg-transparent">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-base font-bold tracking-widest uppercase text-gray-400">
+                PABLO MARTÍ
+            </div>
+            <div class="hidden md:flex items-center gap-12">
+                <a href="#sobre-mi" class="text-base font-medium uppercase tracking-widest text-gray-400 hover:text-white transition-colors relative group">
+                    Sobre mí
+                    <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#proyectos" class="text-base font-medium uppercase tracking-widest text-gray-400 hover:text-white transition-colors relative group">
+                    Proyectos
+                    <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#contacto" class="text-base font-medium uppercase tracking-widest text-gray-400 hover:text-white transition-colors relative group">
+                    Contacto
+                    <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </div>
+            <div class="md:hidden text-base uppercase font-bold text-white">Menú</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen relative flex flex-col justify-center items-center overflow-hidden pt-20">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-900/20 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div class="relative z-10 w-full container mx-auto px-4 flex flex-col items-center select-none">
+            <div class="flex items-center gap-3 mb-4 opacity-0 animate-fade-in" style="animation-delay: 0.5s">
+                <span class="text-yellow-400 text-xl">🚀</span>
+                <p class="text-sm font-medium text-gray-400">Consultor. Soy <span class="text-white font-bold">Pablo Martí</span> aka SAN</p>
+            </div>
+
+            <div class="relative w-full flex justify-center items-center">
+                <h1 class="font-display font-black text-[12vw] sm:text-[10vw] md:text-[10vw] leading-[0.9] tracking-tighter text-white mix-blend-difference z-20 hover:scale-105 transition-transform duration-500 cursor-default text-center">
+                    Marketing
+                </h1>
+                <div class="absolute right-[2%] md:right-[10%] top-1/2 -translate-y-1/2 rotate-6 animate-float z-30 hidden sm:block">
+                    <div class="bg-emerald-500 text-black px-4 md:px-6 py-2 rounded-full font-bold text-xs md:text-sm shadow-[0_0_20px_rgba(16,185,129,0.5)] whitespace-nowrap">IA</div>
+                </div>
+            </div>
+
+            <div class="relative w-full flex justify-center items-center mt-2 md:mt-4">
+                <div class="absolute left-[2%] md:left-[15%] top-1/2 -translate-y-1/2 -rotate-12 animate-float-reverse z-30 hidden sm:block">
+                    <div class="bg-[#ff4d4d] text-white px-4 md:px-5 py-2 rounded-full font-bold text-[10px] md:text-xs uppercase tracking-wide shadow-[0_0_20px_rgba(255,77,77,0.4)] whitespace-nowrap">Branding</div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center md:items-baseline gap-2 md:gap-6 justify-center w-full">
+                    <span class="font-display font-black text-[10vw] sm:text-[8.5vw] md:text-[9vw] leading-[0.9] tracking-tighter text-white text-center">Digital</span>
+                </div>
+                <div class="absolute right-[5%] md:right-[20%] bottom-0 rotate-12 animate-float z-30 hidden sm:block">
+                    <div class="bg-secondary text-white px-4 md:px-6 py-2 rounded-full font-bold text-xs md:text-sm shadow-[0_0_20px_rgba(109,40,217,0.5)] whitespace-nowrap">Campañas</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] md:w-[40vw] h-[40vh] md:h-[50vh] z-0 opacity-40 grayscale contrast-125 pointer-events-none">
+            <img src="https://picsum.photos/id/1005/800/800" alt="Portrait" class="w-full h-full object-contain object-bottom mask-image-gradient" />
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-20 animate-bounce">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        </div>
+    </section>
+
+    <!-- Sobre Mí Section -->
+    <section id="sobre-mi" class="min-h-screen py-24 relative flex flex-col items-center bg-background overflow-hidden">
+        <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="relative z-20">
+                <h2 class="text-4xl md:text-6xl font-display font-bold leading-tight mb-8">
+                    Pensar antes<br/> de <span class="text-outline font-serif italic">comunicar</span>, <br/>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-md leading-relaxed">
+                    Antes de crear contenido o lanzar un mensaje, me gusta entender la marca, el objetivo y a quién va dirigido. Trabajo el marketing digital desde la estrategia.
+                </p>
+                <div class="mt-12">
+                    <button id="open-cv" class="bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-wider hover:bg-accent transition-all duration-300 flex items-center gap-2 group">
+                        <span>Ver CV</span>
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative h-[600px] w-full flex justify-center items-center perspective-1000">
+                <div class="absolute w-64 h-96 bg-gradient-to-br from-pink-500 to-rose-500 rounded-3xl shadow-2xl transform -rotate-12 -translate-x-[120px] translate-y-[20px] opacity-60 scale-90 transition-all duration-500 hover:z-30 hover:opacity-100 hover:scale-100 hover:rotate-0">
+                    <div class="p-6 h-full flex flex-col justify-between">
+                        <div class="text-white/50 text-xs font-bold uppercase">Análisis</div>
+                        <div class="text-white text-2xl font-display font-bold">Investigación</div>
+                    </div>
+                </div>
+                <div class="absolute w-64 h-96 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl shadow-2xl transform -rotate-6 -translate-x-[40px] opacity-80 scale-95 transition-all duration-500 hover:z-30 hover:opacity-100 hover:scale-100 hover:rotate-0 border border-white/10">
+                    <div class="p-6 h-full flex flex-col justify-between">
+                        <div class="text-white/50 text-xs font-bold uppercase">Estrategia</div>
+                        <div class="text-white text-2xl font-display font-bold">Planificación</div>
+                    </div>
+                </div>
+                <div class="absolute w-64 h-96 bg-black rounded-3xl shadow-2xl transform rotate-6 translate-x-[60px] -translate-y-[20px] transition-all duration-500 hover:rotate-0 hover:z-30 overflow-hidden border border-white/20">
+                    <img src="1.jpg" alt="Decorativa" class="absolute inset-0 w-full h-full object-cover opacity-60" />
+                    <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
+                        <span class="text-xs font-bold uppercase text-white">Impacto</span>
+                        <h3 class="text-2xl font-display font-bold text-white mb-2">Creatividad</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos Section -->
+    <section id="proyectos" class="min-h-screen py-20 bg-[#0d0d0d] relative scroll-mt-24">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-end mb-20 relative">
+                <div class="relative z-10">
+                    <span class="text-gray-500 text-sm uppercase tracking-widest font-bold block mb-2">Casos de Éxito</span>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold text-white">Proyectos</h2>
+                </div>
+                <div class="absolute top-0 right-0 opacity-5 pointer-events-none select-none">
+                    <h2 class="text-[20vw] font-black font-display text-white leading-none">Éxito</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Proyectos Dinámicos -->
+                <div class="group relative rounded-3xl overflow-hidden md:row-span-2 bg-[#2a2a2a] aspect-[3/5] md:aspect-auto">
+                    <div class="absolute inset-0 bg-white mix-blend-overlay opacity-0 group-hover:opacity-40 transition-opacity duration-500 z-10"></div>
+                    <img src="https://github.com/pablomarti14/portfoliofotos/blob/main/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(1).png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" alt="Zenith">
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <span class="bg-black/40 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold w-fit mb-4 opacity-0 group-hover:opacity-100 transition-opacity">Branding</span>
+                        <h3 class="text-3xl font-display font-bold text-black">Zenith</h3>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-3xl overflow-hidden md:col-span-2 bg-[#2a2a2a] aspect-video">
+                    <div class="absolute inset-0 bg-white mix-blend-overlay opacity-0 group-hover:opacity-40 transition-opacity duration-500 z-10"></div>
+                    <img src="https://github.com/pablomarti14/portfoliofotos/blob/main/Lexnet.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" alt="LexNet">
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <span class="bg-black/40 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold w-fit mb-4 opacity-0 group-hover:opacity-100 transition-opacity">Campaña</span>
+                        <h3 class="text-3xl font-display font-bold text-black">LexNet</h3>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-3xl overflow-hidden bg-[#2a2a2a] aspect-square">
+                    <div class="absolute inset-0 bg-white mix-blend-overlay opacity-0 group-hover:opacity-40 transition-opacity duration-500 z-10"></div>
+                    <img src="https://github.com/pablomarti14/portfoliofotos/blob/main/L'Etrusco.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" alt="L'Etrusco">
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <span class="bg-black/40 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold w-fit mb-4 opacity-0 group-hover:opacity-100 transition-opacity">Rebranding</span>
+                        <h3 class="text-2xl font-display font-bold text-black">L'Etrusco</h3>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-3xl overflow-hidden bg-[#2a2a2a] aspect-square">
+                    <div class="absolute inset-0 bg-white mix-blend-overlay opacity-0 group-hover:opacity-40 transition-opacity duration-500 z-10"></div>
+                    <img src="https://github.com/pablomarti14/portfoliofotos/blob/main/Simetr%C3%ADa.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" alt="Simetría">
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <span class="bg-black/40 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold w-fit mb-4 opacity-0 group-hover:opacity-100 transition-opacity">Rebranding</span>
+                        <h3 class="text-2xl font-display font-bold text-black">Simetría</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center mt-20">
+                <a href="https://github.com/pablomarti14/portfoliofotos/blob/main/Portfolio%20Pablo%20Marti%20Le%C3%B3n.pdf?raw=true" target="_blank" rel="noopener noreferrer" class="border border-white/20 text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-2 group">
+                    Descargar portfolio <span class="group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <footer id="contacto" class="bg-black py-20 border-t border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20">
+                <div>
+                    <h2 class="text-5xl md:text-7xl font-display font-black text-white mb-6">¿Hablamos?</h2>
+                    <p class="text-gray-400 text-lg max-w-md">¿Tienes un proyecto o una idea en mente? Escríbeme.</p>
+                </div>
+                <div class="mt-10 md:mt-0">
+                    <a href="mailto:pablomartileon@gmail.com" class="inline-block bg-accent text-black px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform duration-300">
+                        pablomartileon@gmail.com
+                    </a>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-white/10">
+                <div class="flex gap-6 mb-6 md:mb-0">
+                    <a href="https://www.instagram.com/pablomartileon/" target="_blank" class="text-gray-400 hover:text-white transition-colors">Instagram</a>
+                    <a href="https://www.linkedin.com/in/pablo-martí-león-37b61b367/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                </div>
+                <p class="text-gray-600 text-sm">© <span id="year"></span> Pablo Martí. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal CV -->
+    <div id="cv-modal" class="fixed inset-0 bg-black/80 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white w-full max-w-5xl h-[90vh] rounded-xl shadow-2xl overflow-hidden flex flex-col relative" onclick="event.stopPropagation()">
+            <div class="bg-gray-900 text-white p-4 flex justify-between items-center shrink-0">
+                <span class="font-bold tracking-wider">CV - Pablo Martí León</span>
+                <button id="close-cv" class="hover:text-red-400 transition-colors">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+            <div class="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8 no-scrollbar">
+                <!-- Contenido del CV -->
+                <div class="max-w-[800px] mx-auto bg-white shadow-lg min-h-[1100px] p-8 md:p-12 text-black">
+                    <div class="flex flex-col md:flex-row gap-8 mb-12 border-b-2 border-black pb-8">
+                        <div class="flex-1">
+                            <h1 class="text-5xl md:text-6xl font-serif mb-2 leading-none">PABLO<br/><span class="font-sans font-bold">MARTÍ LEÓN</span></h1>
+                            <div class="flex items-center gap-3 mt-6">
+                                <span class="h-8 w-1.5 bg-black block"></span>
+                                <span class="text-xl tracking-[0.3em] font-bold uppercase">Estudiante</span>
+                            </div>
+                        </div>
+                        <div class="shrink-0 flex justify-center md:justify-end">
+                            <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-gray-100 shadow-md">
+                                <img src="https://github.com/pablomarti14/portfoliofotos/blob/main/Gemini_Generated_Image_x5fwt4x5fwt4x5fw.png?raw=true" alt="Pablo Martí" class="w-full h-full object-cover" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-12 gap-8 text-sm">
+                        <div class="md:col-span-4 space-y-10 border-r-0 md:border-r-2 border-black/10 pr-0 md:pr-4">
+                            <section class="space-y-4">
+                                <div class="flex gap-3"><strong>📍 Dirección:</strong> <span>Castellón, España</span></div>
+                                <div class="flex gap-3"><strong>📞 Teléfono:</strong> <span>601369529</span></div>
+                                <div class="flex gap-3"><strong>✉️ Mail:</strong> <span class="break-all">pablomartileon@gmail.com</span></div>
+                            </section>
+                            <section>
+                                <h3 class="font-black text-lg uppercase mb-2 border-b border-gray-200">Educación</h3>
+                                <p><strong>Mkt y Publicidad</strong>, IES Caminás</p>
+                            </section>
+                        </div>
+                        <div class="md:col-span-8 space-y-10">
+                            <section>
+                                <h3 class="font-black text-xl uppercase mb-4 border-b-2 border-black pb-2">Perfil</h3>
+                                <p class="text-justify">Trabajador responsable y comprometido enfocado en alcanzar objetivos de marketing digital y estrategia.</p>
+                            </section>
+                            <section>
+                                <h3 class="font-black text-xl uppercase mb-6 border-b-2 border-black pb-2">Experiencia</h3>
+                                <div class="space-y-4">
+                                    <div><strong>Repartidor</strong> - Telepizza (2024)</div>
+                                    <div><strong>Camarero</strong> - Grupo Peñalen (2023)</div>
+                                    <div><strong>Mecánico Aviones</strong> - Brok-Air (2023)</div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lógica de la Web -->
+    <script>
+        // Año actual para el footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 1. Círculo seguidor del cursor
+        const cursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            // Detección de elementos interactivos para agrandar el cursor
+            const target = e.target;
+            const isClickable = window.getComputedStyle(target).cursor === 'pointer' || 
+                              target.tagName === 'BUTTON' || 
+                              target.tagName === 'A';
+            
+            if (isClickable) {
+                cursor.classList.add('w-20', 'h-20', 'opacity-30');
+                cursor.classList.remove('w-4', 'h-4', 'opacity-100');
+            } else {
+                cursor.classList.remove('w-20', 'h-20', 'opacity-30');
+                cursor.classList.add('w-4', 'h-4', 'opacity-100');
+            }
+        });
+
+        // 2. Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-6', 'bg-background/80', 'backdrop-blur-md');
+                navbar.classList.remove('py-10', 'bg-transparent');
+            } else {
+                navbar.classList.remove('py-6', 'bg-background/80', 'backdrop-blur-md');
+                navbar.classList.add('py-10', 'bg-transparent');
+            }
+        });
+
+        // 3. Modal CV Open/Close
+        const modal = document.getElementById('cv-modal');
+        const openBtn = document.getElementById('open-cv');
+        const closeBtn = document.getElementById('close-cv');
+
+        openBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Evitar scroll al abrir modal
+        });
+
+        const closeModal = () => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', closeModal);
+    </script>
+
+</body>
+</html>
